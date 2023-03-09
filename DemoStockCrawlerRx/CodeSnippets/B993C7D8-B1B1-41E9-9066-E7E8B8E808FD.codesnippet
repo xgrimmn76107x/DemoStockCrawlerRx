@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>APIAsyncFunction</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>static func &lt;#api#&gt;() async throws -&gt; &lt;#reponse#&gt; {
+    let url = "&lt;#APIUrl#&gt;"
+    let param:[String:Any] = [
+        "&lt;#Key#&gt;":"&lt;#Value#&gt;"
+    ]
+    
+    let response = await AF.request(url, method: .get, parameters: param, requestModifier: {
+        $0.timeoutInterval = Utlities.apiTimeout(&lt;#T##timeType: APITimerOut##APITimerOut#&gt;)
+    }).serializingResponse(using: .data(emptyResponseCodes: [200, 400]), automaticallyCancelling: true).response
+    
+    switch response.result {
+    case .success(let value):
+        let json = try JSONSerialization.jsonObject(with: value) as? [String:Any] ?? [:]
+        switch response.response?.statusCode {
+        case 200:
+            let data = &lt;#MappableModel#&gt;(JSON: json)
+            return &lt;#response#&gt;
+        case 400:
+            let message = json["&lt;#Message#&gt;"] as? String ?? ""
+            throw APIError.message(message)
+        default:
+            break
+        }
+    case .failure(let error):
+        switch error {
+        case .explicitlyCancelled:
+            throw APIError.cancel
+        default:
+            break
+        }
+        debugPrint("API Error: \(error)")
+    }
+    
+    throw APIError.message(localization.alert_something_wrong_pls_try_again)
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>B993C7D8-B1B1-41E9-9066-E7E8B8E808FD</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>Create Async API Function</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>Create Async API Function</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

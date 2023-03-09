@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>viewModelInitCreate</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>// MARK: - Output
+
+
+// MARK: - Private
+private let localization = LocalizationManager.shared.localizationModel
+
+
+
+// MARK: - Init
+
+
+// MARK: - Functions
+
+func &lt;#fetchData#&gt;() async {
+    async let data = &lt;#apiFunction#&gt;
+    do {
+        &lt;#data#&gt; = try await data
+    } catch APIError.message(let msg) {
+        await Tools.showMessageTitle(self.localization.alert_notice, andMessage: msg, andConfirmBtn: self.localization.alert_got_it2)
+    } catch APIError.cancel {
+        print("API Cancel do notthing")
+    } catch let error {
+        print(error)
+    }
+    
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>530C890B-75D3-4E20-AA2B-010717A55456</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>viewModel Init Create</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>ViewModel Init Create</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

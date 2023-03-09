@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>viewModelFetchData</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>ClassImplementation</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>func &lt;#fetchData#&gt;() async {
+    async let data = &lt;#apiFunction#&gt;
+    do {
+        &lt;#data#&gt; = try await data
+    } catch APIError.message(let msg) {
+        await Tools.showMessageTitle(self.localization.alert_notice, andMessage: msg, andConfirmBtn: self.localization.alert_got_it2)
+    } catch APIError.cancel {
+        print("API Cancel do notthing")
+    } catch let error {
+        print(error)
+    }
+    
+}</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>E9774F71-4CCD-40CE-A674-B9BF9BAE67DC</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Swift</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>view Model Async Fetch Data Function</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>View Model Fetch Data Function</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
