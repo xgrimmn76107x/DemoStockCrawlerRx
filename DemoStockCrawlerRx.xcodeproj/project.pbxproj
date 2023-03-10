@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6527C73929BAFF7000FFDD17 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 6527C73829BAFF7000FFDD17 /* SkeletonView */; };
 		65E6A78529B87CAB00D1CDEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E6A78429B87CAB00D1CDEB /* AppDelegate.swift */; };
 		65E6A78729B87CAB00D1CDEB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E6A78629B87CAB00D1CDEB /* SceneDelegate.swift */; };
 		65E6A78F29B87CAB00D1CDEB /* DemoStockCrawlerRx.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 65E6A78D29B87CAB00D1CDEB /* DemoStockCrawlerRx.xcdatamodeld */; };
@@ -86,6 +87,7 @@
 				65E6A7A829B87DCF00D1CDEB /* ObjectMapper in Frameworks */,
 				65E6A7A529B87DC500D1CDEB /* RxSwift in Frameworks */,
 				65E6A7AB29B87DDC00D1CDEB /* MBProgressHUD in Frameworks */,
+				6527C73929BAFF7000FFDD17 /* SkeletonView in Frameworks */,
 				65E6A7A329B87DC500D1CDEB /* RxCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,6 +234,7 @@
 				65E6A7A729B87DCF00D1CDEB /* ObjectMapper */,
 				65E6A7AA29B87DDC00D1CDEB /* MBProgressHUD */,
 				65E6A7AD29B87DEA00D1CDEB /* Alamofire */,
+				6527C73829BAFF7000FFDD17 /* SkeletonView */,
 			);
 			productName = DemoStockCrawlerRx;
 			productReference = 65E6A78129B87CAB00D1CDEB /* DemoStockCrawlerRx.app */;
@@ -266,6 +269,7 @@
 				65E6A7A629B87DCF00D1CDEB /* XCRemoteSwiftPackageReference "ObjectMapper" */,
 				65E6A7A929B87DDC00D1CDEB /* XCRemoteSwiftPackageReference "MBProgressHUD" */,
 				65E6A7AC29B87DEA00D1CDEB /* XCRemoteSwiftPackageReference "Alamofire" */,
+				6527C73729BAFF7000FFDD17 /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = 65E6A78229B87CAB00D1CDEB /* Products */;
 			projectDirPath = "";
@@ -529,6 +533,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		6527C73729BAFF7000FFDD17 /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.9.0;
+			};
+		};
 		65E6A7A129B87DC500D1CDEB /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
@@ -564,6 +576,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		6527C73829BAFF7000FFDD17 /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6527C73729BAFF7000FFDD17 /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
+		};
 		65E6A7A229B87DC500D1CDEB /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 65E6A7A129B87DC500D1CDEB /* XCRemoteSwiftPackageReference "RxSwift" */;

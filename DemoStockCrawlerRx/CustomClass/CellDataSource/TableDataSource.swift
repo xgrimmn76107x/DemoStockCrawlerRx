@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import SkeletonView
 
-class TableDataSource: NSObject, UITableViewDataSource {
+class TableDataSource: NSObject, SkeletonTableViewDataSource {
     var sections:[TableSection] = []{
         didSet{
             if(self.cells.count == 0){
@@ -81,6 +82,16 @@ class TableDataSource: NSObject, UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         let section = self.sections[section]
         return section.footerTitle
+    }
+    
+    // MARK: - SkeletonView
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+//        return self.data(at: indexPath).cellType.cellIdentifier()
+        return ShowStockTVCell.cellIdentifier()
+    }
+    
+    func collectionSkeletonView(_ skeletonView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
     }
 }
 

@@ -33,11 +33,19 @@ class FirstInputVC: UIViewController {
             return
         }
         Task.detached { @MainActor in
-            Tools.showHud()
             self.task = Task {
-                await self.viewModel.getData(dateStr: self.textField.text ?? "2023/03/08")
-                let vc = ShowStockVC(data: self.viewModel.data)
-                Tools.presentWithUINavigationOnTop(vc)
+                do {
+                    try await self.viewModel.getData(dateStr: self.textField.text ?? "2023/03/08")
+                    let vc = ShowStockVC(data: self.viewModel.data)
+                    Tools.presentWithUINavigationOnTop(vc)
+                } catch APIError.message(let msg) {
+                    Tools.showMessage(title: "Notice", message: msg, buttonList: ["got it"], completion: nil)
+                } catch APIError.cancel {
+                    print("API Cancel do notthing")
+                } catch let error {
+                    print(error)
+                    Tools.showMessage(title: "Notice", message: error.localizedDescription, buttonList: ["got it"], completion: nil)
+                }
             }
         }
     }

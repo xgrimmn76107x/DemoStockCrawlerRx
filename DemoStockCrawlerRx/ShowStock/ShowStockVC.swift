@@ -36,6 +36,7 @@ class ShowStockVC: UIViewController {
         tableSetup()
         navigationSetup("篩選想要的股票")
         
+        viewModel.getData()
         
     }
     
@@ -45,7 +46,7 @@ class ShowStockVC: UIViewController {
         navigationItem.searchController = searchController
         searchController.searchBar.rx.text
             .orEmpty
-            .debounce(.seconds(1), scheduler: MainScheduler.instance)
+            .debounce(.milliseconds(300), scheduler: MainScheduler.instance)
             .distinctUntilChanged()
             .bind(to: viewModel.keyWords)
             .disposed(by: disposeBag)
@@ -59,12 +60,12 @@ class ShowStockVC: UIViewController {
         }.disposed(by: disposeBag)
         
         
-//        textField.rx.text
-//            .orEmpty
-//            .debounce(.seconds(1), scheduler: MainScheduler.instance)
-//            .distinctUntilChanged()
-//            .bind(to: viewModel.keyWords)
-//            .disposed(by: disposeBag)
+        viewModel.insertDataObs.subscribe(with: self) { owner, indices in
+            DispatchQueue.main.async {
+                owner.table.insertSections(IndexSet(integersIn: indices), with: .fade)
+            }
+        }.disposed(by: disposeBag)
+        
     }
     
     func tableSetup() {
@@ -75,5 +76,8 @@ class ShowStockVC: UIViewController {
 }
 
 extension ShowStockVC: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        print("will scroll to :\(indexPath.section)")
+        viewModel.willScrollTo(index: indexPath.section)
+    }
 }

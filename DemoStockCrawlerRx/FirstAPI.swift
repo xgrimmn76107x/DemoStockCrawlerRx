@@ -26,6 +26,7 @@ class FirstAPI {
     
 
     static func getStock(dateStr: String) async throws -> FirstModel {
+        Tools.showHud()
         let url = "https://www.twse.com.tw/zh/exchangeReport/MI_INDEX"
         let param:[String:Any] = [
             "date": dateStr,
@@ -33,19 +34,21 @@ class FirstAPI {
         ]
         
         let response = await AF.request(url, method: .get, parameters: param, requestModifier: {
-            $0.timeoutInterval = 15
-        }).serializingResponse(using: .data(emptyResponseCodes: [200, 400]), automaticallyCancelling: true).response
+            $0.timeoutInterval = 10
+        }).serializingResponse(using: .data(emptyResponseCodes: [200]), automaticallyCancelling: true).response
         
+        Tools.hideHud()
         switch response.result {
         case .success(let value):
             let json = try JSONSerialization.jsonObject(with: value) as? [String:Any] ?? [:]
             switch response.response?.statusCode {
             case 200:
                 let data = FirstModel(JSON: json)
-                return data ?? FirstModel()
-            case 400:
-                let message = json["Message"] as? String ?? ""
-                throw APIError.message(message)
+                if data?.stat == "OK" {
+                    return data ?? FirstModel()
+                }else {
+                    throw APIError.message(data?.stat ?? "Something Error")
+                }
             default:
                 break
             }
@@ -57,6 +60,7 @@ class FirstAPI {
                 break
             }
             debugPrint("API Error: \(error)")
+            throw error
         }
         
         throw APIError.message("Something Error")

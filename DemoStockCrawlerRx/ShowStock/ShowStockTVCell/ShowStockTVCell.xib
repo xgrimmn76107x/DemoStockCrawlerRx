@@ -25,14 +25,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Nd9-Q6-Z4p">
                                 <rect key="frame" x="51.333333333333343" y="0.0" width="268.66666666666663" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </stackView>
                 </subviews>
                 <constraints>
@@ -41,13 +50,19 @@
                     <constraint firstItem="Ef3-Lj-j8q" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="cKG-Wj-6x1"/>
                     <constraint firstAttribute="trailing" secondItem="Ef3-Lj-j8q" secondAttribute="trailing" id="vJo-xo-JSR"/>
                 </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="subTitleLabel" destination="Nd9-Q6-Z4p" id="chw-q4-T2Q"/>
                 <outlet property="titleLabel" destination="PQB-uM-dVQ" id="t7n-m6-j7v"/>
             </connections>
-            <point key="canvasLocation" x="102" y="-11"/>
+            <point key="canvasLocation" x="102" y="-13"/>
         </tableViewCell>
     </objects>
 </document>

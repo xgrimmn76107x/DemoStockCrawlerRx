@@ -7,12 +7,6 @@
 
 import UIKit
 
-protocol CellDataModel{
-    associatedtype DataModelType
-    func setDataModel(_ dataModel:DataModelType)
-}
-
-
 protocol CellConfigurable{
     func setData(_ data:RowDataSource)
 }

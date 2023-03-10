@@ -28,18 +28,9 @@ class FirstInputVM {
     
     // MARK: - Functions
     
-    func getData(dateStr: String) async {
+    func getData(dateStr: String) async throws {
         let tempDateStr = dateStr.replacingOccurrences(of: "/", with: "")
-        async let data = FirstAPI.getStock(dateStr: dateStr)
-        do {
-            self.data = try await data
-        } catch APIError.message(let msg) {
-            Tools.showMessage(title: "Notice", message: msg, buttonList: ["got it"], completion: nil)
-        } catch APIError.cancel {
-            print("API Cancel do notthing")
-        } catch let error {
-            print(error)
-        }
+        self.data = try await FirstAPI.getStock(dateStr: tempDateStr)
         
     }
     
