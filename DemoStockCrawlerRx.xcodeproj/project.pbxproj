@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6527C73929BAFF7000FFDD17 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 6527C73829BAFF7000FFDD17 /* SkeletonView */; };
+		655CBEBF29BEE72B00876D91 /* Contentsize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655CBEBE29BEE72B00876D91 /* Contentsize.swift */; };
 		65E6A78529B87CAB00D1CDEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E6A78429B87CAB00D1CDEB /* AppDelegate.swift */; };
 		65E6A78729B87CAB00D1CDEB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E6A78629B87CAB00D1CDEB /* SceneDelegate.swift */; };
 		65E6A78F29B87CAB00D1CDEB /* DemoStockCrawlerRx.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 65E6A78D29B87CAB00D1CDEB /* DemoStockCrawlerRx.xcdatamodeld */; };
@@ -45,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		655CBEBE29BEE72B00876D91 /* Contentsize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contentsize.swift; sourceTree = "<group>"; };
 		65E6A78129B87CAB00D1CDEB /* DemoStockCrawlerRx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoStockCrawlerRx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65E6A78429B87CAB00D1CDEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65E6A78629B87CAB00D1CDEB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				65E6A7BA29B87E6100D1CDEB /* CellDataSource */,
+				655CBEBE29BEE72B00876D91 /* Contentsize.swift */,
 			);
 			path = CustomClass;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 			files = (
 				65E6A79F29B87D8E00D1CDEB /* FirstInputVM.swift in Sources */,
 				65E6A7A029B87D8E00D1CDEB /* FirstInputVC.swift in Sources */,
+				655CBEBF29BEE72B00876D91 /* Contentsize.swift in Sources */,
 				65E6A7DB29B87F6900D1CDEB /* ShowStockTVCell.swift in Sources */,
 				65E6A7C529B87EAE00D1CDEB /* UICollectionViewCell+Extension.swift in Sources */,
 				65E6A7D629B87F5300D1CDEB /* ShowStockVM.swift in Sources */,

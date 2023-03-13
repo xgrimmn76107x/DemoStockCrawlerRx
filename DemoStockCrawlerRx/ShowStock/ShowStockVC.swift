@@ -50,6 +50,10 @@ class ShowStockVC: UIViewController {
             .distinctUntilChanged()
             .bind(to: viewModel.keyWords)
             .disposed(by: disposeBag)
+        
+        searchController.searchBar.rx.cancelButtonClicked
+            .bind(to: viewModel.cancelBtn)
+            .disposed(by: disposeBag)
     }
     
     

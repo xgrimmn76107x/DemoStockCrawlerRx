@@ -21,8 +21,10 @@ class ShowStockVM {
         return insertDataPublish.asObserver()
     }
     
+    /// 搜尋欄輸入
     var keyWords = PublishSubject<String>()
-    
+    /// 搜尋按取消
+    var cancelBtn = PublishSubject<Void>()
     
     // MARK: - Private
     private let disposeBag = DisposeBag()
@@ -56,6 +58,10 @@ class ShowStockVM {
             .drive(with: self) { owner, searchText in
                 self.filter(searchText)
             }.disposed(by: disposeBag)
+        
+        cancelBtn.asObserver().subscribe(with: self) { owner, _ in
+            owner.filter("")
+        }.disposed(by: disposeBag)
     }
     
     // MARK: - 過濾出選擇編號的股票
