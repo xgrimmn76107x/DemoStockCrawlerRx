@@ -12,6 +12,10 @@ import RxSwift
 class FirstInputVM {
     // MARK: - Output
     
+    var completeGetDataObs: Observable<FirstModel> {
+        return completeGetDataPublish.asObservable()
+    }
+    
     
     // MARK: - Private
     private let disposeBag = DisposeBag()
@@ -21,6 +25,8 @@ class FirstInputVM {
     private(set) public var dateStr: String = ""
     
     private(set) public var data: FirstModel!
+    
+    private var completeGetDataPublish = PublishSubject<FirstModel>()
     
     // MARK: - Init
     
@@ -32,6 +38,22 @@ class FirstInputVM {
         let tempDateStr = dateStr.replacingOccurrences(of: "/", with: "")
         self.data = try await FirstAPI.getStock(dateStr: tempDateStr)
         
+    }
+    
+    func moyaGetData(dateStr: String) {
+        Tools.showHud()
+        APIManager.shared.request(StockService.SearchAll(dateStr: dateStr)).subscribe(with: self) { owner, firstModel in
+            Tools.hideHud()
+            if firstModel.stat == "OK" {
+                owner.completeGetDataPublish.onNext(firstModel)
+            }else {
+                Tools.showMessage(title: "Notice", message: firstModel.stat, buttonList: ["got it"])
+            }
+        } onFailure: { owner, error in
+            Tools.hideHud()
+            Tools.showMessage(title: "Notice", message: error.localizedDescription, buttonList: ["got it"])
+        }.disposed(by: disposeBag)
+
     }
     
     

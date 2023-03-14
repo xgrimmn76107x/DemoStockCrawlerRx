@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		6527C73929BAFF7000FFDD17 /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 6527C73829BAFF7000FFDD17 /* SkeletonView */; };
 		655CBEBF29BEE72B00876D91 /* Contentsize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655CBEBE29BEE72B00876D91 /* Contentsize.swift */; };
+		655CBEC229C016D300876D91 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 655CBEC129C016D300876D91 /* Moya */; };
+		655CBEC429C016D300876D91 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 655CBEC329C016D300876D91 /* RxMoya */; };
+		655CBEC729C016F400876D91 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655CBEC629C016F400876D91 /* APIManager.swift */; };
+		655CBECA29C0196100876D91 /* ObserverType+ObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655CBEC929C0196100876D91 /* ObserverType+ObjectMapper.swift */; };
+		655CBECC29C0197D00876D91 /* Observable+ObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655CBECB29C0197D00876D91 /* Observable+ObjectMapper.swift */; };
+		655CBECE29C0198A00876D91 /* Single+MoyaObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655CBECD29C0198A00876D91 /* Single+MoyaObjectMapper.swift */; };
+		655CBED129C019CC00876D91 /* FirstMoyaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655CBED029C019CC00876D91 /* FirstMoyaAPI.swift */; };
 		65E6A78529B87CAB00D1CDEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E6A78429B87CAB00D1CDEB /* AppDelegate.swift */; };
 		65E6A78729B87CAB00D1CDEB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E6A78629B87CAB00D1CDEB /* SceneDelegate.swift */; };
 		65E6A78F29B87CAB00D1CDEB /* DemoStockCrawlerRx.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 65E6A78D29B87CAB00D1CDEB /* DemoStockCrawlerRx.xcdatamodeld */; };
@@ -47,6 +54,11 @@
 
 /* Begin PBXFileReference section */
 		655CBEBE29BEE72B00876D91 /* Contentsize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contentsize.swift; sourceTree = "<group>"; };
+		655CBEC629C016F400876D91 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		655CBEC929C0196100876D91 /* ObserverType+ObjectMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObserverType+ObjectMapper.swift"; sourceTree = "<group>"; };
+		655CBECB29C0197D00876D91 /* Observable+ObjectMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+ObjectMapper.swift"; sourceTree = "<group>"; };
+		655CBECD29C0198A00876D91 /* Single+MoyaObjectMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Single+MoyaObjectMapper.swift"; sourceTree = "<group>"; };
+		655CBED029C019CC00876D91 /* FirstMoyaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstMoyaAPI.swift; sourceTree = "<group>"; };
 		65E6A78129B87CAB00D1CDEB /* DemoStockCrawlerRx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoStockCrawlerRx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65E6A78429B87CAB00D1CDEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65E6A78629B87CAB00D1CDEB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +102,8 @@
 				65E6A7A529B87DC500D1CDEB /* RxSwift in Frameworks */,
 				65E6A7AB29B87DDC00D1CDEB /* MBProgressHUD in Frameworks */,
 				6527C73929BAFF7000FFDD17 /* SkeletonView in Frameworks */,
+				655CBEC229C016D300876D91 /* Moya in Frameworks */,
+				655CBEC429C016D300876D91 /* RxMoya in Frameworks */,
 				65E6A7A329B87DC500D1CDEB /* RxCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -97,6 +111,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		655CBEC529C016E900876D91 /* MoyaAPIService */ = {
+			isa = PBXGroup;
+			children = (
+				655CBEC629C016F400876D91 /* APIManager.swift */,
+			);
+			path = MoyaAPIService;
+			sourceTree = "<group>";
+		};
+		655CBEC829C0194200876D91 /* RxSwift+Moya+ObjectMapper Extension */ = {
+			isa = PBXGroup;
+			children = (
+				655CBEC929C0196100876D91 /* ObserverType+ObjectMapper.swift */,
+				655CBECD29C0198A00876D91 /* Single+MoyaObjectMapper.swift */,
+				655CBECB29C0197D00876D91 /* Observable+ObjectMapper.swift */,
+			);
+			path = "RxSwift+Moya+ObjectMapper Extension";
+			sourceTree = "<group>";
+		};
+		655CBECF29C019C000876D91 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				65E6A7DF29B87FCA00D1CDEB /* FirstAPI.swift */,
+				655CBED029C019CC00876D91 /* FirstMoyaAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		65E6A77829B87CAB00D1CDEB = {
 			isa = PBXGroup;
 			children = (
@@ -116,12 +157,13 @@
 		65E6A78329B87CAB00D1CDEB /* DemoStockCrawlerRx */ = {
 			isa = PBXGroup;
 			children = (
+				655CBEC529C016E900876D91 /* MoyaAPIService */,
 				65E6A78429B87CAB00D1CDEB /* AppDelegate.swift */,
 				65E6A78629B87CAB00D1CDEB /* SceneDelegate.swift */,
 				65E6A79D29B87D8E00D1CDEB /* FirstInputVC.swift */,
 				65E6A79B29B87D8E00D1CDEB /* FirstInputVC.xib */,
 				65E6A79C29B87D8E00D1CDEB /* FirstInputVM.swift */,
-				65E6A7DF29B87FCA00D1CDEB /* FirstAPI.swift */,
+				655CBECF29C019C000876D91 /* API */,
 				65E6A7DD29B87FBE00D1CDEB /* FirstModel.swift */,
 				65E6A7D129B87F2900D1CDEB /* ShowStock */,
 				65E6A7CC29B87EDD00D1CDEB /* GenericCollectionViewCell */,
@@ -130,6 +172,7 @@
 				65E6A7B929B87E4400D1CDEB /* CustomClass */,
 				65E6A7B229B87E0F00D1CDEB /* ProtocolExtension */,
 				65E6A79029B87CAB00D1CDEB /* Assets.xcassets */,
+				655CBEC829C0194200876D91 /* RxSwift+Moya+ObjectMapper Extension */,
 				65E6A79229B87CAB00D1CDEB /* LaunchScreen.storyboard */,
 				65E6A79529B87CAB00D1CDEB /* Info.plist */,
 				65E6A78D29B87CAB00D1CDEB /* DemoStockCrawlerRx.xcdatamodeld */,
@@ -238,6 +281,8 @@
 				65E6A7AA29B87DDC00D1CDEB /* MBProgressHUD */,
 				65E6A7AD29B87DEA00D1CDEB /* Alamofire */,
 				6527C73829BAFF7000FFDD17 /* SkeletonView */,
+				655CBEC129C016D300876D91 /* Moya */,
+				655CBEC329C016D300876D91 /* RxMoya */,
 			);
 			productName = DemoStockCrawlerRx;
 			productReference = 65E6A78129B87CAB00D1CDEB /* DemoStockCrawlerRx.app */;
@@ -273,6 +318,7 @@
 				65E6A7A929B87DDC00D1CDEB /* XCRemoteSwiftPackageReference "MBProgressHUD" */,
 				65E6A7AC29B87DEA00D1CDEB /* XCRemoteSwiftPackageReference "Alamofire" */,
 				6527C73729BAFF7000FFDD17 /* XCRemoteSwiftPackageReference "SkeletonView" */,
+				655CBEC029C016D300876D91 /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = 65E6A78229B87CAB00D1CDEB /* Products */;
 			projectDirPath = "";
@@ -316,16 +362,21 @@
 				65E6A7BE29B87E7B00D1CDEB /* CollectionDataSource.swift in Sources */,
 				65E6A78529B87CAB00D1CDEB /* AppDelegate.swift in Sources */,
 				65E6A7C729B87EB900D1CDEB /* UICollectionReusableView+Extension.swift in Sources */,
+				655CBED129C019CC00876D91 /* FirstMoyaAPI.swift in Sources */,
 				65E6A7D729B87F5300D1CDEB /* ShowStockVC.swift in Sources */,
 				65E6A7B129B87E0100D1CDEB /* Tools.swift in Sources */,
 				65E6A7E029B87FCA00D1CDEB /* FirstAPI.swift in Sources */,
+				655CBECC29C0197D00876D91 /* Observable+ObjectMapper.swift in Sources */,
 				65E6A7CF29B87EF600D1CDEB /* NoneCVReusableView.swift in Sources */,
 				65E6A7DE29B87FBE00D1CDEB /* FirstModel.swift in Sources */,
+				655CBECA29C0196100876D91 /* ObserverType+ObjectMapper.swift in Sources */,
+				655CBECE29C0198A00876D91 /* Single+MoyaObjectMapper.swift in Sources */,
 				65E6A78F29B87CAB00D1CDEB /* DemoStockCrawlerRx.xcdatamodeld in Sources */,
 				65E6A7C929B87EC300D1CDEB /* UIAlertController+Extension.swift in Sources */,
 				65E6A7B829B87E3800D1CDEB /* RowDataSource.swift in Sources */,
 				65E6A7BC29B87E6D00D1CDEB /* TableDataSource.swift in Sources */,
 				65E6A7B429B87E2200D1CDEB /* CellDataModel.swift in Sources */,
+				655CBEC729C016F400876D91 /* APIManager.swift in Sources */,
 				65E6A7C029B87E8800D1CDEB /* SectionDataSource.swift in Sources */,
 				65E6A78729B87CAB00D1CDEB /* SceneDelegate.swift in Sources */,
 			);
@@ -545,6 +596,14 @@
 				minimumVersion = 1.9.0;
 			};
 		};
+		655CBEC029C016D300876D91 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = exactVersion;
+				version = 15.0.0;
+			};
+		};
 		65E6A7A129B87DC500D1CDEB /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
@@ -584,6 +643,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6527C73729BAFF7000FFDD17 /* XCRemoteSwiftPackageReference "SkeletonView" */;
 			productName = SkeletonView;
+		};
+		655CBEC129C016D300876D91 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 655CBEC029C016D300876D91 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		655CBEC329C016D300876D91 /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 655CBEC029C016D300876D91 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
 		};
 		65E6A7A229B87DC500D1CDEB /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;

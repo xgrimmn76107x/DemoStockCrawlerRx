@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class FirstInputVC: UIViewController {
     
@@ -13,6 +15,8 @@ class FirstInputVC: UIViewController {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var confirmBtn: UIButton!
     
+    
+    let disposeBag = DisposeBag()
     
     private let datePicker = UIDatePicker()
     
@@ -24,18 +28,22 @@ class FirstInputVC: UIViewController {
         super.viewDidLoad()
         createDatePicker()
         
-        
+        bindings()
+    }
+    // MARK: - Binding Use RxMoya
+    func bindings() {
+        viewModel.completeGetDataObs.subscribe(with: self) { owner, firstModel in
+            let vc = ShowStockVC(data: firstModel)
+            Tools.presentWithUINavigationOnTop(vc)
+        }.disposed(by: disposeBag)
     }
 
+    // MARK: - Use Async/Await
     func fetchData() {
-        guard textField.text != "" else {
-            Tools.showMessage(title: "Notice", message: "please input Date", buttonList: ["got it"])
-            return
-        }
         Task.detached { @MainActor in
             self.task = Task {
                 do {
-                    try await self.viewModel.getData(dateStr: self.textField.text ?? "2023/03/08")
+                    try await self.viewModel.getData(dateStr: self.textField.text ?? "")
                     let vc = ShowStockVC(data: self.viewModel.data)
                     Tools.presentWithUINavigationOnTop(vc)
                 } catch APIError.message(let msg) {
@@ -51,7 +59,12 @@ class FirstInputVC: UIViewController {
     }
 
     @IBAction func confirmBtnPressed(_ sender: Any) {
-        fetchData()
+        guard textField.text != "" else {
+            Tools.showMessage(title: "Notice", message: "please input Date", buttonList: ["got it"])
+            return
+        }
+//        fetchData()
+        viewModel.moyaGetData(dateStr: self.textField.text ?? "")
     }
     
 
