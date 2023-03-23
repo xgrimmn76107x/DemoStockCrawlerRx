@@ -41,13 +41,14 @@ class FirstInputVM {
     }
     
     func moyaGetData(dateStr: String) {
+        let tempDateStr = dateStr.replacingOccurrences(of: "/", with: "")
         Tools.showHud()
-        APIManager.shared.request(StockService.SearchAll(dateStr: dateStr)).subscribe(with: self) { owner, firstModel in
+        APIManager.shared.request(StockService.SearchAll(dateStr: tempDateStr)).subscribe(with: self) { owner, data in
             Tools.hideHud()
-            if firstModel.stat == "OK" {
+            if let firstModel = data.tables.first(where: {$0.title.contains("每日收盤行情(全部)")}) {
                 owner.completeGetDataPublish.onNext(firstModel)
             }else {
-                Tools.showMessage(title: "Notice", message: firstModel.stat, buttonList: ["got it"])
+                Tools.showMessage(title: "Notice", message: "No Data", buttonList: ["got it"])
             }
         } onFailure: { owner, error in
             Tools.hideHud()

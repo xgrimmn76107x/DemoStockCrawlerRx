@@ -43,9 +43,9 @@ class FirstAPI {
             let json = try JSONSerialization.jsonObject(with: value) as? [String:Any] ?? [:]
             switch response.response?.statusCode {
             case 200:
-                let data = FirstModel(JSON: json)
-                if data?.stat == "OK" {
-                    return data ?? FirstModel()
+                let data = FirstResponseModel(JSON: json)
+                if let firstModel = data?.tables.first(where: {$0.title.contains("每日收盤行情(全部)")}) {
+                    return firstModel
                 }else {
                     throw APIError.message(data?.stat ?? "Something Error")
                 }

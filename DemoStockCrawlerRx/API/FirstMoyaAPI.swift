@@ -14,14 +14,14 @@ import RxSwift
 private protocol AddressAPITagetType: MappableResponseTargetType{}
 
 extension AddressAPITagetType {
-    var baseURL: URL { return URL(string: "https://www.twse.com.tw/zh/exchangeReport")!}
+    var baseURL: URL { return URL(string: "https://www.twse.com.tw/rwd/zh/afterTrading")!}
     var headers: [String : String]? { return ["Content-Type": "application/json"] }
     var sampleData: Data { return Data()}
 }
 
 enum StockService {
     struct SearchAll: AddressAPITagetType{
-        typealias ResponseType = FirstModel
+        typealias ResponseType = FirstResponseModel
         
         var path: String { return "/MI_INDEX" }
         

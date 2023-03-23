@@ -16,6 +16,11 @@
 		655CBECC29C0197D00876D91 /* Observable+ObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655CBECB29C0197D00876D91 /* Observable+ObjectMapper.swift */; };
 		655CBECE29C0198A00876D91 /* Single+MoyaObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655CBECD29C0198A00876D91 /* Single+MoyaObjectMapper.swift */; };
 		655CBED129C019CC00876D91 /* FirstMoyaAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655CBED029C019CC00876D91 /* FirstMoyaAPI.swift */; };
+		65768EAB29C4C4080047D555 /* ShowStockDiffableVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65768EAA29C4C4080047D555 /* ShowStockDiffableVM.swift */; };
+		65768EAE29C4C41F0047D555 /* ShowStockDiffableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65768EAC29C4C41F0047D555 /* ShowStockDiffableVC.swift */; };
+		65768EAF29C4C41F0047D555 /* ShowStockDiffableVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65768EAD29C4C41F0047D555 /* ShowStockDiffableVC.xib */; };
+		65768EB329C4C7990047D555 /* ShowStockDiffableCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65768EB129C4C7980047D555 /* ShowStockDiffableCVCell.swift */; };
+		65768EB429C4C7990047D555 /* ShowStockDiffableCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65768EB229C4C7980047D555 /* ShowStockDiffableCVCell.xib */; };
 		65E6A78529B87CAB00D1CDEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E6A78429B87CAB00D1CDEB /* AppDelegate.swift */; };
 		65E6A78729B87CAB00D1CDEB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E6A78629B87CAB00D1CDEB /* SceneDelegate.swift */; };
 		65E6A78F29B87CAB00D1CDEB /* DemoStockCrawlerRx.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 65E6A78D29B87CAB00D1CDEB /* DemoStockCrawlerRx.xcdatamodeld */; };
@@ -59,6 +64,11 @@
 		655CBECB29C0197D00876D91 /* Observable+ObjectMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+ObjectMapper.swift"; sourceTree = "<group>"; };
 		655CBECD29C0198A00876D91 /* Single+MoyaObjectMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Single+MoyaObjectMapper.swift"; sourceTree = "<group>"; };
 		655CBED029C019CC00876D91 /* FirstMoyaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstMoyaAPI.swift; sourceTree = "<group>"; };
+		65768EAA29C4C4080047D555 /* ShowStockDiffableVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowStockDiffableVM.swift; sourceTree = "<group>"; };
+		65768EAC29C4C41F0047D555 /* ShowStockDiffableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowStockDiffableVC.swift; sourceTree = "<group>"; };
+		65768EAD29C4C41F0047D555 /* ShowStockDiffableVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowStockDiffableVC.xib; sourceTree = "<group>"; };
+		65768EB129C4C7980047D555 /* ShowStockDiffableCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowStockDiffableCVCell.swift; sourceTree = "<group>"; };
+		65768EB229C4C7980047D555 /* ShowStockDiffableCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowStockDiffableCVCell.xib; sourceTree = "<group>"; };
 		65E6A78129B87CAB00D1CDEB /* DemoStockCrawlerRx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoStockCrawlerRx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65E6A78429B87CAB00D1CDEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65E6A78629B87CAB00D1CDEB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +148,26 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		65768EA529C4C3B80047D555 /* ShowStockDiffableCollection */ = {
+			isa = PBXGroup;
+			children = (
+				65768EAC29C4C41F0047D555 /* ShowStockDiffableVC.swift */,
+				65768EAD29C4C41F0047D555 /* ShowStockDiffableVC.xib */,
+				65768EAA29C4C4080047D555 /* ShowStockDiffableVM.swift */,
+				65768EB029C4C4240047D555 /* ShowStockDiffableCVCell */,
+			);
+			path = ShowStockDiffableCollection;
+			sourceTree = "<group>";
+		};
+		65768EB029C4C4240047D555 /* ShowStockDiffableCVCell */ = {
+			isa = PBXGroup;
+			children = (
+				65768EB129C4C7980047D555 /* ShowStockDiffableCVCell.swift */,
+				65768EB229C4C7980047D555 /* ShowStockDiffableCVCell.xib */,
+			);
+			path = ShowStockDiffableCVCell;
+			sourceTree = "<group>";
+		};
 		65E6A77829B87CAB00D1CDEB = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +195,7 @@
 				65E6A79C29B87D8E00D1CDEB /* FirstInputVM.swift */,
 				655CBECF29C019C000876D91 /* API */,
 				65E6A7DD29B87FBE00D1CDEB /* FirstModel.swift */,
+				65768EA529C4C3B80047D555 /* ShowStockDiffableCollection */,
 				65E6A7D129B87F2900D1CDEB /* ShowStock */,
 				65E6A7CC29B87EDD00D1CDEB /* GenericCollectionViewCell */,
 				65E6A7AF29B87DF600D1CDEB /* Tools */,
@@ -338,8 +369,10 @@
 				65E6A79E29B87D8E00D1CDEB /* FirstInputVC.xib in Resources */,
 				65E6A7D029B87EF600D1CDEB /* NoneCVReusableView.xib in Resources */,
 				65E6A79129B87CAB00D1CDEB /* Assets.xcassets in Resources */,
+				65768EAF29C4C41F0047D555 /* ShowStockDiffableVC.xib in Resources */,
 				65E6A7D529B87F5300D1CDEB /* ShowStockVC.xib in Resources */,
 				65E6A7DC29B87F6900D1CDEB /* ShowStockTVCell.xib in Resources */,
+				65768EB429C4C7990047D555 /* ShowStockDiffableCVCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +386,7 @@
 				65E6A79F29B87D8E00D1CDEB /* FirstInputVM.swift in Sources */,
 				65E6A7A029B87D8E00D1CDEB /* FirstInputVC.swift in Sources */,
 				655CBEBF29BEE72B00876D91 /* Contentsize.swift in Sources */,
+				65768EB329C4C7990047D555 /* ShowStockDiffableCVCell.swift in Sources */,
 				65E6A7DB29B87F6900D1CDEB /* ShowStockTVCell.swift in Sources */,
 				65E6A7C529B87EAE00D1CDEB /* UICollectionViewCell+Extension.swift in Sources */,
 				65E6A7D629B87F5300D1CDEB /* ShowStockVM.swift in Sources */,
@@ -362,6 +396,7 @@
 				65E6A7BE29B87E7B00D1CDEB /* CollectionDataSource.swift in Sources */,
 				65E6A78529B87CAB00D1CDEB /* AppDelegate.swift in Sources */,
 				65E6A7C729B87EB900D1CDEB /* UICollectionReusableView+Extension.swift in Sources */,
+				65768EAE29C4C41F0047D555 /* ShowStockDiffableVC.swift in Sources */,
 				655CBED129C019CC00876D91 /* FirstMoyaAPI.swift in Sources */,
 				65E6A7D729B87F5300D1CDEB /* ShowStockVC.swift in Sources */,
 				65E6A7B129B87E0100D1CDEB /* Tools.swift in Sources */,
@@ -371,6 +406,7 @@
 				65E6A7DE29B87FBE00D1CDEB /* FirstModel.swift in Sources */,
 				655CBECA29C0196100876D91 /* ObserverType+ObjectMapper.swift in Sources */,
 				655CBECE29C0198A00876D91 /* Single+MoyaObjectMapper.swift in Sources */,
+				65768EAB29C4C4080047D555 /* ShowStockDiffableVM.swift in Sources */,
 				65E6A78F29B87CAB00D1CDEB /* DemoStockCrawlerRx.xcdatamodeld in Sources */,
 				65E6A7C929B87EC300D1CDEB /* UIAlertController+Extension.swift in Sources */,
 				65E6A7B829B87E3800D1CDEB /* RowDataSource.swift in Sources */,
@@ -446,7 +482,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -500,7 +536,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -517,7 +553,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QPCZVV36G4;
+				DEVELOPMENT_TEAM = YKSH4ZSDK7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DemoStockCrawlerRx/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -544,7 +580,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QPCZVV36G4;
+				DEVELOPMENT_TEAM = YKSH4ZSDK7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DemoStockCrawlerRx/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

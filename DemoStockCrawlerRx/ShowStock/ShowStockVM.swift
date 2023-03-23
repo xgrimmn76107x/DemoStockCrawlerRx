@@ -82,8 +82,8 @@ class ShowStockVM {
     // MARK: - Functions
     func getData() {
         var demoStockModel: [ShowStockTVCellModel] = []
-        for data in firstModel.data9 {
-            for (index, field) in firstModel.fields9.enumerated() {
+        for data in firstModel.data {
+            for (index, field) in firstModel.fields.enumerated() {
                 demoStockModel.append(ShowStockTVCellModel(field: field, data: data[index]))
             }
             fullTableData.append(TableSection(headerTitle: data[1], footerTitle: data[0], rows: demoStockModel))

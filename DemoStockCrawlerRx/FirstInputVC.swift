@@ -33,7 +33,8 @@ class FirstInputVC: UIViewController {
     // MARK: - Binding Use RxMoya
     func bindings() {
         viewModel.completeGetDataObs.subscribe(with: self) { owner, firstModel in
-            let vc = ShowStockVC(data: firstModel)
+//            let vc = ShowStockVC(data: firstModel)
+            let vc = ShowStockDiffableVC(data: firstModel)
             Tools.presentWithUINavigationOnTop(vc)
         }.disposed(by: disposeBag)
     }
@@ -44,7 +45,8 @@ class FirstInputVC: UIViewController {
             self.task = Task {
                 do {
                     try await self.viewModel.getData(dateStr: self.textField.text ?? "")
-                    let vc = ShowStockVC(data: self.viewModel.data)
+//                    let vc = ShowStockVC(data: self.viewModel.data)
+                    let vc = ShowStockDiffableVC(data: self.viewModel.data)
                     Tools.presentWithUINavigationOnTop(vc)
                 } catch APIError.message(let msg) {
                     Tools.showMessage(title: "Notice", message: msg, buttonList: ["got it"], completion: nil)
@@ -63,7 +65,9 @@ class FirstInputVC: UIViewController {
             Tools.showMessage(title: "Notice", message: "please input Date", buttonList: ["got it"])
             return
         }
+        //MARK: Async/await FetData
 //        fetchData()
+        //MARK: Moya FetData
         viewModel.moyaGetData(dateStr: self.textField.text ?? "")
     }
     

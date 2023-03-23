@@ -8,20 +8,35 @@
 import Foundation
 import ObjectMapper
 
-class FirstModel: Mappable {
+struct FirstResponseModel: Mappable {
+    var tables: [FirstModel] = []
     var stat: String = ""
-    var fields9: [String] = []
-    var data9: [[String]] = []
+    
+    init() {}
+    init?(map: ObjectMapper.Map) {}
+    
+    mutating func mapping(map: ObjectMapper.Map) {
+        stat <- map["stat"]
+        tables <- map["tables"]
+    }
+    
+    
+}
+
+struct FirstModel: Mappable {
+    var title: String = ""
+    var fields: [String] = []
+    var data: [[String]] = []
     
     
     init() {}
     
-    required init?(map: ObjectMapper.Map) {}
+    init?(map: ObjectMapper.Map) {}
     
-    func mapping(map: ObjectMapper.Map) {
-        stat <- map["stat"]
-        fields9 <- map["fields9"]
-        data9 <- map["data9"]
+    mutating func mapping(map: ObjectMapper.Map) {
+        title <- map["title"]
+        fields <- map["fields"]
+        data <- map["data"]
     }
     
     
