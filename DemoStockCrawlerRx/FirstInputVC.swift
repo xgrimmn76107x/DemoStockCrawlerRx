@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class FirstInputVC: UIViewController {
+class FirstInputVC: UIViewController, PresentProtocol, AlertProtocol {
     
     
     @IBOutlet weak var textField: UITextField!
@@ -20,12 +20,15 @@ class FirstInputVC: UIViewController {
     
     private let datePicker = UIDatePicker()
     
-    private let viewModel = FirstInputVM()
+    private var viewModel: FirstInputVM!
     
     private var task: Task<Void, Never>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewModel = FirstInputVM(service: FirstAPI())
+        
         createDatePicker()
         
         bindings()
@@ -33,9 +36,9 @@ class FirstInputVC: UIViewController {
     // MARK: - Binding Use RxMoya
     func bindings() {
         viewModel.completeGetDataObs.subscribe(with: self) { owner, firstModel in
-//            let vc = ShowStockVC(data: firstModel)
-            let vc = ShowStockDiffableVC(data: firstModel)
-            Tools.presentWithUINavigationOnTop(vc)
+            let vc = ShowStockVC(data: firstModel)
+//            let vc = ShowStockDiffableVC(data: firstModel)
+            self.presentWithUINavigationOnTop(vc, presentStyle: .fullScreen, transitionStyle: .coverVertical)
         }.disposed(by: disposeBag)
     }
 
@@ -45,16 +48,16 @@ class FirstInputVC: UIViewController {
             self.task = Task {
                 do {
                     try await self.viewModel.getData(dateStr: self.textField.text ?? "")
-//                    let vc = ShowStockVC(data: self.viewModel.data)
-                    let vc = ShowStockDiffableVC(data: self.viewModel.data)
-                    Tools.presentWithUINavigationOnTop(vc)
+                    let vc = ShowStockVC(data: self.viewModel.data)
+//                    let vc = ShowStockDiffableVC(data: self.viewModel.data)
+                    self.presentWithUINavigationOnTop(vc, presentStyle: .fullScreen, transitionStyle: .coverVertical)
                 } catch APIError.message(let msg) {
-                    Tools.showMessage(title: "Notice", message: msg, buttonList: ["got it"], completion: nil)
+                    self.showAlert(title: "Notice", message: msg, buttonList: ["got it"], completion: nil)
                 } catch APIError.cancel {
                     print("API Cancel do notthing")
                 } catch let error {
                     print(error)
-                    Tools.showMessage(title: "Notice", message: error.localizedDescription, buttonList: ["got it"], completion: nil)
+                    self.showAlert(title: "Notice", message: error.localizedDescription, buttonList: ["got it"], completion: nil)
                 }
             }
         }
@@ -62,7 +65,7 @@ class FirstInputVC: UIViewController {
 
     @IBAction func confirmBtnPressed(_ sender: Any) {
         guard textField.text != "" else {
-            Tools.showMessage(title: "Notice", message: "please input Date", buttonList: ["got it"])
+            showAlert(title: "Notice", message: "please input Date", buttonList: ["got it"], completion: nil)
             return
         }
         //MARK: Async/await FetData

@@ -69,8 +69,9 @@ class ShowStockVM {
         if text == "" {
             container = fullTableData.enumerated().filter({$0.offset < totalCount}).map({$0.element})
         }else {
-            if let section = fullTableData.first(where: {$0.footerTitle == text}) {
-                container = [section]
+            if text.count >= 3 {
+                let section = fullTableData.filter({$0.footerTitle.contains(text)})
+                container = section
             }else {
                 container = fullTableData.enumerated().filter({$0.offset < totalCount}).map({$0.element})
             }

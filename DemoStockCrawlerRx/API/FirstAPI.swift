@@ -22,10 +22,14 @@ enum APIError: LocalizedError {
     }
 }
 
-class FirstAPI {
+protocol FirstAPIProtocol {
+    func getStock(dateStr: String) async throws -> FirstModel
+}
+
+class FirstAPI: FirstAPIProtocol {
     
 
-    static func getStock(dateStr: String) async throws -> FirstModel {
+    func getStock(dateStr: String) async throws -> FirstModel {
         Tools.showHud()
         let url = "https://www.twse.com.tw/zh/exchangeReport/MI_INDEX"
         let param:[String:Any] = [

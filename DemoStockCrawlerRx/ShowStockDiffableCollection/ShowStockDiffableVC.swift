@@ -38,8 +38,8 @@ class ShowStockDiffableVC: UIViewController {
         super.viewDidLoad()
         
         searchSetup()
-        collectionSetup()
         configureCollectionDataSource()
+        collectionSetup()
         bindings()
         navigationSetup("篩選想要的股票")
         
@@ -108,7 +108,7 @@ class ShowStockDiffableVC: UIViewController {
             
         }
         
-        let cellRegistration = UICollectionView.CellRegistration<ShowStockDiffableCVCell, StockItem> { cell, indexPath, itemIdentifier in
+        cellRegistration = UICollectionView.CellRegistration<ShowStockDiffableCVCell, StockItem> { cell, indexPath, itemIdentifier in
             cell.showStockCellModel = itemIdentifier
         }
         
@@ -125,7 +125,7 @@ class ShowStockDiffableVC: UIViewController {
 //        })
         
         dataSource = DataSource(collectionView: collection, cellProvider: { collectionView, indexPath, itemIdentifier in
-//            let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
+//            let cell = collectionView.dequeueConfiguredReusableCell(using: self.cellRegistration, for: indexPath, item: itemIdentifier)
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ShowStockDiffableCVCell.cellIdentifier(), for: indexPath) as! ShowStockDiffableCVCell
             cell.showStockCellModel = itemIdentifier
             return cell

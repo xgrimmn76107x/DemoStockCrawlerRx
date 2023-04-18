@@ -20,6 +20,8 @@ class FirstInputVM {
     // MARK: - Private
     private let disposeBag = DisposeBag()
     
+    private var service: FirstAPIProtocol
+    
     private(set) public var tableData = TableDataSource()
     
     private(set) public var dateStr: String = ""
@@ -29,14 +31,16 @@ class FirstInputVM {
     private var completeGetDataPublish = PublishSubject<FirstModel>()
     
     // MARK: - Init
-    
+    init(service: FirstAPIProtocol) {
+        self.service = service
+    }
     
     
     // MARK: - Functions
     
     func getData(dateStr: String) async throws {
         let tempDateStr = dateStr.replacingOccurrences(of: "/", with: "")
-        self.data = try await FirstAPI.getStock(dateStr: tempDateStr)
+        self.data = try await service.getStock(dateStr: tempDateStr)
         
     }
     
