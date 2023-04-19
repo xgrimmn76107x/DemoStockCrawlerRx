@@ -22,7 +22,15 @@ class FirstInputVC: UIViewController, PresentProtocol, AlertProtocol {
     
     private var viewModel: FirstInputVM!
     
+    private var hud: HUDProtocol!
+    
     private var task: Task<Void, Never>?
+    
+    
+    convenience init(hud: HUDProtocol) {
+        self.init()
+        self.hud = hud
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +54,7 @@ class FirstInputVC: UIViewController, PresentProtocol, AlertProtocol {
     func fetchData() {
         Task.detached { @MainActor in
             self.task = Task {
+                self.hud.showLoadingHUD(view: self.view, text: "processing")
                 do {
                     try await self.viewModel.getData(dateStr: self.textField.text ?? "")
                     let vc = ShowStockVC(data: self.viewModel.data)
@@ -59,6 +68,7 @@ class FirstInputVC: UIViewController, PresentProtocol, AlertProtocol {
                     print(error)
                     self.showAlert(title: "Notice", message: error.localizedDescription, buttonList: ["got it"], completion: nil)
                 }
+                self.hud.hideHud(view: self.view)
             }
         }
     }
@@ -69,9 +79,9 @@ class FirstInputVC: UIViewController, PresentProtocol, AlertProtocol {
             return
         }
         //MARK: Async/await FetData
-//        fetchData()
+        fetchData()
         //MARK: Moya FetData
-        viewModel.moyaGetData(dateStr: self.textField.text ?? "")
+//        viewModel.moyaGetData(dateStr: self.textField.text ?? "")
     }
     
 

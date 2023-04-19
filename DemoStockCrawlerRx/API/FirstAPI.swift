@@ -30,7 +30,6 @@ class FirstAPI: FirstAPIProtocol {
     
 
     func getStock(dateStr: String) async throws -> FirstModel {
-        Tools.showHud()
         let url = "https://www.twse.com.tw/zh/exchangeReport/MI_INDEX"
         let param:[String:Any] = [
             "date": dateStr,
@@ -41,7 +40,6 @@ class FirstAPI: FirstAPIProtocol {
             $0.timeoutInterval = 10
         }).serializingResponse(using: .data(emptyResponseCodes: [200]), automaticallyCancelling: true).response
         
-        Tools.hideHud()
         switch response.result {
         case .success(let value):
             let json = try JSONSerialization.jsonObject(with: value) as? [String:Any] ?? [:]
