@@ -69,3 +69,14 @@ class FirstAPI: FirstAPIProtocol {
     }
 }
 
+class FirstAPIMockError: FirstAPIProtocol {
+    func getStock(dateStr: String) async throws -> FirstModel {
+        throw APIError.message("Error Test")
+    }
+}
+
+class FirstAPIMockCancel: FirstAPIProtocol {
+    func getStock(dateStr: String) async throws -> FirstModel {
+        throw APIError.cancel
+    }
+}

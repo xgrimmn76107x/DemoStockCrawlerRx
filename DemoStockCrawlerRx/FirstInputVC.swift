@@ -20,22 +20,21 @@ class FirstInputVC: UIViewController, PresentProtocol, AlertProtocol {
     
     private let datePicker = UIDatePicker()
     
-    private var viewModel: FirstInputVM!
+    private(set) public var viewModel: FirstInputVM!
     
     private var hud: HUDProtocol!
     
     private var task: Task<Void, Never>?
     
     
-    convenience init(hud: HUDProtocol) {
+    convenience init(hud: HUDProtocol, service: FirstAPIProtocol) {
         self.init()
         self.hud = hud
+        viewModel = FirstInputVM(service: service)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        viewModel = FirstInputVM(service: FirstAPI())
         
         createDatePicker()
         
